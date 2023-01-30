@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+    <style>
+        .centrar {
+            width: 100vh;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centrar">
+        <div id="calc">
+            <input type="text" id="op1">
+            <select id="opcion">
+                <option>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+                <option>%</option>
+            </select>
+            <input type="text" id="op2">
+            <input type="submit" id="boton" value="Try Me!">
+        </div>
+    </div>
+
+    <script>
+        let calc = document.getElementById("calc");
+        let op1 = document.getElementById("op1");
+        let op2 = document.getElementById("op2");
+        let boton = document.getElementById("boton");
+        let opcion = document.getElementById("opcion");
+        let resultado = 0;
+
+        boton.addEventListener("click", operar);
+
+        function operar() {
+            let num1 = parseFloat(op1.value);
+            let num2 = parseFloat(op2.value);
+            let selectedOption = opcion.options[opcion.selectedIndex].value;
+
+            if (selectedOption === "+") {
+                resultado = num1 + num2;
+            } else if (selectedOption === "-") {
+                resultado = num1 - num2;
+            } else if (selectedOption === "*") {
+                resultado = num1 * num2;
+            } else if (selectedOption === "/") {
+                if (num2 === 0) {
+                    console.error("No se puede dividir por cero");
+                    resultado = "No se puede dividir por cero";
+                } else {
+                    resultado = num1 / num2;
+                }
+            } else if (selectedOption === "%") {
+                if (num2 === 0) {
+                    console.error("No se puede dividir por cero");
+                    resultado = "No se puede dividir por cero";
+                } else {
+                    resultado = num1 / num2;
+                }
+            }
+            alert(resultado);
+        }
+    </script>
+</body>
+
+</html>

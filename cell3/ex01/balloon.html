@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Balloon</title>
+    <style>
+        #globo {
+            height: 200px;
+            width: 200px;
+            border-radius: 100%;
+            background-color: red;
+        }
+
+        .centrar {
+            width: 100vh;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="centrar">
+        <div id="globo"></div>
+    </div>
+    <script>
+        let globo = document.getElementById("globo");
+        let tam = 200;
+        let color = "red";
+        globo.addEventListener("click", aumentar);
+        globo.addEventListener("mouseout", disminuir);
+
+        function aumentar() {
+            // aumenta tamaño y color rojo, verde, azul
+
+            tam += 10;
+            if (tam > 420) {
+                tam = 200;
+            }
+
+            if (color === "red") {
+                color = "green";
+            } else if (color === "green") {
+                color = "blue";
+            } else if (color === "blue") {
+                color = "red";
+            }
+            globo.style.width = tam + "px";
+            globo.style.height = tam + "px";
+            globo.style.backgroundColor = color;
+        }
+
+        function disminuir() {
+            // disminuye tamaño y color azul, verde, rojo
+
+            if (tam < 200) {
+                tam = 200;
+            }
+            
+            tam -= 5;
+
+            if (color === "blue") {
+                color = "green";
+            } else if (color === "green") {
+                color = "red";
+            } else if (color === "red") {
+                color = "blue";
+            }
+            globo.style.width = tam + "px";
+            globo.style.height = tam + "px";
+            globo.style.backgroundColor = color;
+        }
+
+    </script>
+</body>
+</html>

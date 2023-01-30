@@ -1,0 +1,40 @@
+ul{
+    display: none;
+}
+input:checked ~ ul{
+    display: block;
+}
+input{
+    display: none;
+}
+label{
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+label:hover{
+    background: teal;
+}
+input:checked ~ label{
+    background: teal;
+    color: white;
+}
+li{
+    display: block;
+    background: lightblue;
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid teal
+    
+}
+li:hover{
+    background: teal;
+    color: white;
+}
+ul{
+    width: 200px;
+}
